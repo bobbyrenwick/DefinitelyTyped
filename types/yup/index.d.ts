@@ -94,7 +94,7 @@ export interface MixedSchema<T = any> extends Schema<T> {
     nullable(isNullable?: true): MixedSchema<T | null>;
     nullable(isNullable: false): MixedSchema<Exclude<T, null>>;
     nullable(isNullable?: boolean): MixedSchema<T>;
-    required(message?: TestOptionsMessage): MixedSchema<Exclude<T, undefined>>;
+    required(message?: TestOptionsMessage): MixedSchema<Exclude<T, undefined | null>>;
     notRequired(): MixedSchema<T | undefined>;
     concat(schema: this): this;
     concat<U>(schema: MixedSchema<U>): MixedSchema<T | U>;
